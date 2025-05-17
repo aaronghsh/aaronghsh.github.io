@@ -520,3 +520,25 @@ body.light-mode body.light-mode #projects .skill-box {
     }
 }
 
+/* Smooth fade-in animation for section elements */
+section {
+    transition: all 0.6s ease-in-out;
+}
+
+/* Subtle hover scale for navbar links */
+.navbar li a {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar li a:hover {
+    transform: scale(1.1);
+}
+
+/* Animate buttons */
+.btn {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
