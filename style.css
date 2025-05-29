@@ -63,7 +63,7 @@ body::before {
     position: relative;
     overflow: hidden;
     padding: 0;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
 }
 
 .glow-effect {
@@ -410,21 +410,21 @@ body.light-mode #contact {
 #about {
     background: transparent;
     position: relative;
-    padding: 120px 0;
-    margin-bottom: 200px;
+    padding: 80px 0;
+    margin-bottom: 80px;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    text-align: left; /* Align text to the left */
+    justify-content: center;
+    align-items: center;
+    text-align: left;
 }
 
 #about .about-content {
     display: flex;
-    flex-direction: row; /* Arrange items in a row */
+    flex-direction: row;
     align-items: center;
-    gap: 40px; /* Add spacing between profile picture and text */
+    gap: 40px;
     max-width: 1200px;
-    margin: 0 auto; /* Center the content container */
+    margin: 0 auto;
 }
 
 .about-text {
@@ -444,12 +444,12 @@ body.light-mode #contact {
 
 /* Styling for the hyperlink in the About section */
 .blue-link {
-    color: #3498DB; /* Blue color */
-    text-decoration: none; /* No underline */
+    color: #3498DB;
+    text-decoration: none;
 }
 
 .blue-link:hover {
-    text-decoration: underline; /* Underline on hover for better UX */
+    text-decoration: underline;
     color: #1ABC9C;
 }
 
@@ -476,7 +476,7 @@ section li {
 }
 
 .experience-box {
-    background: #2C3E50; /* Dark blue for the box */
+    background: #2C3E50;
     padding: 30px 20px;
     border-radius: 10px;
     text-align: center;
@@ -485,13 +485,13 @@ section li {
 
 .experience-box h3 {
     font-size: 40px;
-    color: #3498DB; /* Blue for the number */
+    color: #3498DB;
     margin: 0;
 }
 
 .experience-box p {
     font-size: 18px;
-    color: #FFFFFF; /* White text for the description */
+    color: #FFFFFF;
 }
 
 /* Centered Sections */
@@ -505,11 +505,11 @@ section li {
 }
 
 #skills {
-    padding: 120px 0;
+    padding: 80px 0;
     text-align: center;
     background: transparent;
     position: relative;
-    margin-bottom: 200px;
+    margin-bottom: 80px;
 }
 
 #skills h2 {
@@ -519,28 +519,34 @@ section li {
 
 .skills-list {
     display: grid;
-    grid-template-columns: repeat(4, 250px);
-    gap: 80px 100px;  /* 80px vertical, 100px horizontal gap */
-    padding: 80px;
-    max-width: 1600px;
+    grid-template-columns: repeat(4, 200px);
+    gap: 30px 40px;
+    padding: 40px;
+    max-width: 1200px;
     margin: 0 auto;
     justify-content: center;
 }
 
 .skill-box {
-    background: #3498DB;
-    padding: 20px 30px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    background: rgba(26, 76, 124, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
-    cursor: pointer;
-    height: 60px;
-    width: 250px;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
     animation: float 6s ease-in-out infinite;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 /* Icon colors - these will apply to both dark and light modes */
@@ -555,13 +561,33 @@ section li {
 .skill-box i.fa-memory { color: #9575CD !important; }
 
 .skill-box i {
-    font-size: 24px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
     transition: all 0.3s ease;
+    transform-style: preserve-3d;
 }
 
 .skill-box:hover {
-    transform: translateY(-20px);
-    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-15px) rotate3d(1, 1, 0, 5deg);
+    border-color: rgba(52, 152, 219, 0.4);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(52, 152, 219, 0.2);
+    background: rgba(26, 76, 124, 0.4);
+}
+
+.skill-box:hover i {
+    transform: scale(1.2) rotate3d(0, 1, 0, 15deg);
+    filter: drop-shadow(0 0 10px rgba(52, 152, 219, 0.6));
+}
+
+/* Add tilt effect to even and odd items in opposite directions */
+.skill-box:nth-child(even):hover {
+    transform: translateY(-15px) rotate3d(1, -1, 0, 5deg);
+}
+
+.skill-box:nth-child(odd):hover {
+    transform: translateY(-15px) rotate3d(1, 1, 0, 5deg);
 }
 
 /* Text in skill box */
@@ -574,14 +600,17 @@ section li {
 
 /* Light mode adjustments - only affects the box, not the icons */
 body.light-mode .skill-box {
-    background: #ECF0F1;
-    border: 1px solid #BDC3C7;
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(52, 152, 219, 0.3);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
 }
 
 body.light-mode .skill-box:hover {
-    background: #E0E5E7;
-    box-shadow: 0 30px 30px rgba(52, 152, 219, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(52, 152, 219, 0.6);
+    box-shadow: 
+        0 10px 20px rgba(52, 152, 219, 0.2),
+        0 0 30px rgba(52, 152, 219, 0.15);
 }
 
 body.light-mode .skill-box span {
@@ -589,7 +618,7 @@ body.light-mode .skill-box span {
 }
 
 /* Light mode - keep icon colors */
-body.light-mode .skill-box i.fa-terminal { color: #87CEEB; } /* Keep light blue in light mode */
+body.light-mode .skill-box i.fa-terminal { color: #87CEEB; }
 
 /* Typing Effect Styles */
 .typing-text {
@@ -606,7 +635,7 @@ body.light-mode .fade-in-text {
 
 /* Contact Section */
 #contact {
-    padding: 120px 0 60px;
+    padding: 80px 0 40px;
     text-align: center;
     background: transparent;
     color: #FFFFFF;
@@ -653,37 +682,25 @@ body.light-mode footer p {
 /* Responsive adjustments */
 @media (max-width: 1600px) {
     .skills-list {
-        grid-template-columns: repeat(4, 220px);
-        gap: 60px 80px;
-        padding: 60px;
-        max-width: 1400px;
-    }
-
-    .skill-box {
-        width: 220px;
+        grid-template-columns: repeat(4, 180px);
+        gap: 25px 35px;
+        padding: 30px;
+        max-width: 1000px;
     }
 }
 
 @media (max-width: 1200px) {
     .skills-list {
-        grid-template-columns: repeat(2, 250px);
-        gap: 60px 100px;
-        padding: 50px;
-    }
-
-    .skill-box {
-        width: 250px;
+        grid-template-columns: repeat(3, 180px);
+        gap: 25px 35px;
+        padding: 25px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .skills-list {
         grid-width: 100%;
-        padding: 40px;
-    }
-
-    .skill-box {
-        width: 100%;
+        padding: 20px;
     }
 }
 
@@ -721,8 +738,8 @@ a:hover, button:hover, .skill-box:hover {
 /* Footer */
 footer {
     width: 100%;
-    padding: 50px 0;
-    margin-top: 100px;
+    padding: 20px 0;
+    margin-top: 30px;
     text-align: center;
     position: relative;
     background: transparent;
@@ -741,7 +758,7 @@ footer p {
 
 /* Adjusting Titles and Main Text Contrast for Light Mode */
 body.light-mode h1, body.light-mode h2, body.light-mode h3 {
-    color: #2C3E50; /* Dark blue for titles */
+    color: #2C3E50;
 }
 
 /* Light Mode Adjustments for Projects and Experience Sections */
@@ -751,22 +768,22 @@ body.light-mode #projects {
 }
 
 body.light-mode body.light-mode #projects .skill-box {
-    background: #2C3E50; /* Dark blue for experience boxes in light mode */
-    color: #FFFFFF; /* White text */
+    background: #2C3E50;
+    color: #FFFFFF;
 }
 
 body.light-mode body.light-mode #projects .skill-box {
-    color: #3498DB; /* Blue text for numbers and skills */
+    color: #3498DB;
 }
 
 /* Projects Section */
 #projects {
     text-align: center;
-    padding: 120px 0;
+    padding: 80px 0;
     background: transparent;
     color: #FFFFFF;
     position: relative;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
 }
 
 #projects h2 {
@@ -920,8 +937,8 @@ body.light-mode .projects-container {
 section {
     position: relative;
     z-index: 1;
-    padding: 120px 0;
-    margin-bottom: 120px;
+    padding: 80px 0;
+    margin-bottom: 80px;
     background: transparent;
     transition: all 0.5s ease;
 }
@@ -1029,8 +1046,8 @@ body.light-mode {
 /* Footer Adjustments */
 footer {
     background: transparent;
-    padding: 30px 0;
-    margin-top: 50px;
+    padding: 20px 0;
+    margin-top: 30px;
     position: relative;
 }
 
@@ -1294,11 +1311,15 @@ body.light-mode::-webkit-scrollbar-thumb:hover {
 
 /* Staggered Animation Delays */
 .skill-box:nth-child(2n) {
-    animation-delay: 0.2s;
+    animation-delay: 1s;
 }
 
 .skill-box:nth-child(3n) {
-    animation-delay: 0.4s;
+    animation-delay: 2s;
+}
+
+.skill-box:nth-child(4n) {
+    animation-delay: 3s;
 }
 
 /* Particle Effect */
